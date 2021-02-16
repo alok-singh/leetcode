@@ -1,10 +1,4 @@
-/**
- * Definition for singly-linked list.
- */
-function ListNode(val, next) {
-  this.val = val === undefined ? 0 : val;
-  this.next = next === undefined ? null : next;
-}
+const { printLinkedList, ListNode, generateLinkedList } = require("./utils");
 
 /**
  * @param {ListNode} l1
@@ -42,30 +36,6 @@ const addTwoNumbers = (l1, l2) => {
   return returnNode;
 };
 
-// generate linked list
-const generateLinkedList = (array) => {
-  let l3 = new ListNode();
-  const head = l3;
-  for (let i = 0; i < array.length; i++) {
-    l3.val = array[i];
-    if (i < array.length - 1) {
-      l3.next = new ListNode();
-      l3 = l3.next;
-    } else {
-      l3.next = null;
-    }
-  }
-  return head;
-};
-
-// print linked list
-const printLinkedList = (head) => {
-  while (head) {
-    console.log(head.value);
-    head = head.next;
-  }
-};
-
 const number1 = [9, 9, 9, 9, 9, 9, 9];
 const number2 = [9, 9, 9, 9];
 
@@ -73,10 +43,8 @@ const l1 = generateLinkedList(number1);
 const l2 = generateLinkedList(number2);
 const l3 = addTwoNumbers(l1, l2);
 
-// printLinkedList(l1);
-// console.log(`-----------`);
-// printLinkedList(l2);
-// console.log(`-----------`);
-// printLinkedList(l3);
-
-console.log(JSON.stringify(l3, null, '  '));
+printLinkedList(l1);
+console.log(`-----------`);
+printLinkedList(l2);
+console.log(`-----------`);
+printLinkedList(l3);
